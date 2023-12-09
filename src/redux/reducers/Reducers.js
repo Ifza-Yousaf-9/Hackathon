@@ -9,7 +9,6 @@ import {
   UPDATE_COURSE_DETAILS,
 } from "../types/ActionsTypes";
 
-// initial state
 const initialState = {
   isAllDetails: [],
   isAllCoursesDetails: [],
@@ -17,14 +16,12 @@ const initialState = {
 
 export default function Reducers(state = initialState, action) {
   switch (action?.type) {
-    // add details
     case ADD_DETAILS:
       let addData = [...state?.isAllDetails, action?.payload];
       return {
         ...state,
         isAllDetails: addData,
       };
-    // add courses details
     case ADD_COURSE_DETAILS:
       let addCourseData = [...state?.isAllCoursesDetails, action?.payload];
       return {
@@ -32,21 +29,18 @@ export default function Reducers(state = initialState, action) {
         isAllCoursesDetails: addCourseData,
       };
 
-    // show details
     case SHOW_DETAILS:
       return {
         ...state,
         isAllDetails: action?.payload,
       };
 
-    // show courses details
     case SHOW_COURSE_DETAILS:
       return {
         ...state,
         isAllCoursesDetails: action?.payload,
       };
 
-    // delete details
     case DELETE_DETAILS:
       let delData = state?.isAllDetails?.filter(
         (item) => item?._id !== action?.payload
@@ -56,7 +50,6 @@ export default function Reducers(state = initialState, action) {
         isAllDetails: delData,
       };
 
-    // delete Course details
     case DELETE_COURSE_DETAILS:
       let delCourseData = state?.isAllCoursesDetails?.filter(
         (item) => item?._id !== action?.payload
@@ -66,7 +59,6 @@ export default function Reducers(state = initialState, action) {
         isAllCoursesDetails: delCourseData,
       };
 
-    // update details
     case UPDATE_DETAILS:
       let updateData = state?.isAllDetails?.map((item) => {
         if (item?._id === action?.payload?._id) {
@@ -80,7 +72,6 @@ export default function Reducers(state = initialState, action) {
         isAllDetails: updateData,
       };
 
-    // update Course details
     case UPDATE_COURSE_DETAILS:
       let updateCourseData = state?.isAllCoursesDetails?.map((item) => {
         if (item?._id === action?.payload?._id) {

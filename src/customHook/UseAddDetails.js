@@ -9,18 +9,6 @@ export default function UseAddDetails() {
 
 
 
-  // routes data
-  // const router = useSearchParams();
-  // const userData = router?.query?.userData;
-  // // parse data
-  // useEffect(() => {
-  //   if (router?.query?.userData) {
-  //     let paramsData = JSON?.parse(userData);
-  //     updateFieldsHandler(paramsData);
-  //   }
-  // }, []);
-
-  // states
   const [firstName, setFirstName] = useState("");
   const [firstNameError, setFirstNameError] = useState(false);
   const [lastName, setLastName] = useState("");
@@ -33,7 +21,6 @@ export default function UseAddDetails() {
   const [updateId, setUpdateId] = useState("");
   const [flag, setFlag] = useState(false);
 
-  // validate first name
   const validateFirstName = (e) => {
     setFirstName(e.target.value);
     if (e.target.value.length === "") {
@@ -52,7 +39,6 @@ export default function UseAddDetails() {
     }
   };
 
-  // validate last name
   const validateLastName = (e) => {
     setLastName(e.target.value);
     if (e.target.value.length === "") {
@@ -71,7 +57,6 @@ export default function UseAddDetails() {
     }
   };
 
-  //   validate email
   const validateEmail = (e) => {
     setEmail(e.target.value);
     if (e.target.value === "") {
@@ -88,7 +73,6 @@ export default function UseAddDetails() {
     }
   };
 
-  // validate phone number
   const validatePhoneNumber = (e) => {
     setPhoneNum(e.target.value);
     if (e.target.value === "") {
@@ -98,7 +82,6 @@ export default function UseAddDetails() {
     }
   };
 
-  // add details handler
   const addDetailsHandler = () => {
     if (!firstName && !lastName && !email && !phoneNum) {
       setFirstNameError(true);
@@ -144,7 +127,6 @@ export default function UseAddDetails() {
     }
   };
 
-  // update fields handler
   const updateFieldsHandler = (paramsData) => {
     setFirstName(paramsData?.firstName);
     setLastName(paramsData?.lastName);
@@ -154,7 +136,6 @@ export default function UseAddDetails() {
     setFlag(true);
   };
 
-  // update details handler
   const updateDetailsHandler = () => {
     if (!firstName && !lastName && !email && !phoneNum) {
       setFirstNameError(true);

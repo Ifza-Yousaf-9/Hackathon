@@ -38,26 +38,19 @@ export default function AllCourses() {
 
   return (
     <>
-      {/* <Text
-        fontSize="lg"
-        color="blackAlpha.900"
-        fontWeight={"bold"}
-        textAlign={"center"}
-      >
-       All Courses
-      </Text> */}
+      
       <Text
   fontSize="lg"
-  color="blue.600" // Yahan aap apne pasandeeda color code ya Chakra UI color scheme ka use kar sakte hain
+  color="blue.600" 
   fontWeight={"bold"}
   textAlign={"center"}
 >
-  All Courses
+  Course Management System
 </Text>
 
       <TableContainer boxShadow="lg" rounded="md" bg="white" mt={5}>
         <Table variant="simple">
-          <TableCaption>All right reserved &amp; created by  &copy; Ifza </TableCaption>
+          <TableCaption>All right reserved &amp; created by  &copy; <i>Ifza Yousaf</i> </TableCaption>
           <Thead>
             <Tr>
               <Th>Course name</Th>
@@ -83,12 +76,8 @@ export default function AllCourses() {
                   />
                 </Td>
                 <Td>
-                  {/* <Link
-                    href={{
-                      pathname: "/addCourses",
-                      query: { courseData: JSON?.stringify(item) },
-                    }}
-                  > */}
+                 
+               
                     <IconButton
                       size="lg"
                       variant="solid"
@@ -96,7 +85,6 @@ export default function AllCourses() {
                       icon={<EditIcon color={"blue.600"} />}
                       onClick={() => navigate("/addCourse", { state: { courseData: item } })}
                     />
-                  {/* </Link> */}
                 </Td>
               </Tr>
             ))}

@@ -39,7 +39,7 @@ export default function AllStudent() {
     <>
       <Text
         fontSize="lg"
-        color="blackAlpha.900"
+        color="blue.600"
         fontWeight={"bold"}
         textAlign={"center"}
       >

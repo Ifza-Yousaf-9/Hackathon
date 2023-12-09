@@ -8,24 +8,6 @@ import { useSearchParams } from "react-router-dom";
 
 export default function UseAddCourse() {
   const dispatch = useDispatch();
-
-  // routes data
-  // const router = useRouter();
-  // const router = useSearchParams();
-
-  // console.log("Use Search Params: ", router);
-
-  // const courseData = router?.query?.courseData;
-
-  // // parse data
-  // useEffect(() => {
-  //   if (router?.query?.courseData) {
-  //     let paramsData = JSON?.parse(courseData);
-  //     updateFieldsHandler(paramsData);
-  //   }
-  // }, []);
-
-  // states
   const [courseName, setCourseName] = useState("");
   const [courseNameError, setCourseNameError] = useState(false);
   const [courseCode, setCourseCode] = useState("");
@@ -35,7 +17,6 @@ export default function UseAddCourse() {
   const [updateId, setUpdateId] = useState("");
   const [flag, setFlag] = useState(false);
 
-  // validateCourseName
   const validateCourseName = (e) => {
     setCourseName(e.target.value);
     if (e.target.value === "") {
@@ -45,7 +26,6 @@ export default function UseAddCourse() {
     }
   };
 
-  // validateCourseCode
   const validateCourseCode = (e) => {
     setCourseCode(e.target.value);
     if (e.target.value === "") {
@@ -55,12 +35,10 @@ export default function UseAddCourse() {
     }
   };
 
-  //  validateDescription
   const validateDescription = (e) => {
     setDescription(e.target.value);
   };
 
-  // add details handler
   const addDetailsHandler = () => {
     if (!courseName && !courseCode) {
       setCourseNameError(true);
@@ -87,7 +65,6 @@ export default function UseAddCourse() {
     }
   };
 
-  // update fields handler
   const updateFieldsHandler = (paramsData) => {
     setCourseName(paramsData?.courseName);
     setCourseCode(paramsData?.courseCode);
@@ -96,7 +73,6 @@ export default function UseAddCourse() {
     setFlag(true);
   };
 
-  // update details handler
   const updateDetailsHandler = () => {
     if (!courseName && !courseCode) {
       setCourseNameError(true);

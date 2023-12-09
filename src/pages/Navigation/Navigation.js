@@ -6,46 +6,48 @@ import AllStudent from "../AllStudents/AllStudents";
 import AllCourses from "../AllCourses/AllCourses";
 import AddCourse from "../AddCourse/AddCourse";
 import AddStudent from "../AddStudent/AddStudent";
+import Attendance from "../AddAttandance/Attandance";
 import Layout from "../../components/Layout";
 
 function Navigation() {
-
-    return (
-        <Router>
-            <Layout>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <AllStudent />
-                        }
-                    />
-                    <Route
-                        path="allCourses"
-                        element={
-                            <AllCourses />
-                        }
-                    />
-                    <Route
-                        path="addCourse"
-                        element={
-                            <AddCourse />
-                        }
-                    />
-                    <Route
-                        path="addStudent"
-                        element={
-                            <AddStudent />
-                        }
-                    />
-                </Routes>
-            </Layout>
-        </Router>
-    );
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <AllStudent />
+            }
+          />
+          <Route
+            path="allCourses"
+            element={
+              <AllCourses />
+            }
+          />
+          <Route
+            path="addCourse"
+            element={
+              <AddCourse />
+            }
+          />
+          <Route
+            path="addStudent"
+            element={
+              <AddStudent />
+            }
+          />
+          <Route
+            path="attendance" 
+            element={
+              <Attendance />
+            }
+          />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
 
 export default Navigation;
-
-
-
-

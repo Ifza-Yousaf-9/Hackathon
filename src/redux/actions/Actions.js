@@ -24,7 +24,7 @@ export const addDetailes = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
     let response = await addDoc(collection(db, "studentDetails"), data);
-    // if response are successfully then data save in redux
+
     if (response?.id) {
       dispatch({
         type: ADD_DETAILS,
@@ -39,12 +39,10 @@ export const addDetailes = (data, setIsLoading) => async (dispatch) => {
   }
 };
 
-// add details action
 export const addCourseDetailes = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
     let response = await addDoc(collection(db, "coursesDetails"), data);
-    // if response are successfully then data save in redux
     if (response?.id) {
       dispatch({
         type: ADD_COURSE_DETAILS,
@@ -59,7 +57,6 @@ export const addCourseDetailes = (data, setIsLoading) => async (dispatch) => {
   }
 };
 
-// show details action
 export const showDetails = (setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
@@ -68,7 +65,6 @@ export const showDetails = (setIsLoading) => async (dispatch) => {
       _id: doc?.id,
       ...doc?.data(),
     }));
-    // if response are successfully then data save in redux
     if (fetchedData) {
       dispatch({
         type: SHOW_DETAILS,
@@ -82,7 +78,6 @@ export const showDetails = (setIsLoading) => async (dispatch) => {
   }
 };
 
-// show Course details action
 export const showCourseDetails = (setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
@@ -91,7 +86,6 @@ export const showCourseDetails = (setIsLoading) => async (dispatch) => {
       _id: doc?.id,
       ...doc?.data(),
     }));
-    // if response are successfully then data save in redux
     if (fetchedData) {
       dispatch({
         type: SHOW_COURSE_DETAILS,
@@ -105,7 +99,6 @@ export const showCourseDetails = (setIsLoading) => async (dispatch) => {
   }
 };
 
-// delete detail action
 export const deleteDetail = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
@@ -122,7 +115,6 @@ export const deleteDetail = (data, setIsLoading) => async (dispatch) => {
   }
 };
 
-// delete Course detail action
 export const deleteCourseDetail = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
@@ -139,7 +131,6 @@ export const deleteCourseDetail = (data, setIsLoading) => async (dispatch) => {
   }
 };
 
-// update details handler
 export const updateDetails = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);
@@ -156,7 +147,6 @@ export const updateDetails = (data, setIsLoading) => async (dispatch) => {
   }
 };
 
-// update Course details handler
 export const updateCourseDetails = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);

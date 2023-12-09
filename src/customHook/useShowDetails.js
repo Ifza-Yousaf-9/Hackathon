@@ -9,14 +9,11 @@ export default function UseShowDetails() {
   const [isLoading, setIsLoading] = useState(false);
 
   const storeData = useSelector((store) => store?.Reducers?.isAllDetails);
-  // console.log(storeData,"storeData");
 
-  // show details handler
   useEffect(() => {
     dispatch(showDetails(setIsLoading));
   }, []);
 
-  // delete details handler
   const deleteDetailsHandler = (detailID) => {
     dispatch(deleteDetail(detailID, setIsLoading));
   };

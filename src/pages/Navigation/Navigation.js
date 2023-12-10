@@ -6,7 +6,7 @@ import AllStudent from "../AllStudents/AllStudents";
 import AllCourses from "../AllCourses/AllCourses";
 import AddCourse from "../AddCourse/AddCourse";
 import AddStudent from "../AddStudent/AddStudent";
-import Attendance from "../AddAttandance/Attandance";
+import Attendance from "../AddAttandance/AddAttandance";
 import Layout from "../../components/Layout";
 
 function Navigation() {

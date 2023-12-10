@@ -19,7 +19,6 @@ import {
 import { db } from "../../config/FirebaseConfig";
 import { toast } from "react-toastify";
 
-// add details action
 export const addDetailes = (data, setIsLoading) => async (dispatch) => {
   try {
     setIsLoading(true);

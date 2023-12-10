@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Text, Container, Button, Input, Stack } from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Text,
+  Container,
+  Button,
+  Stack,
+  IconButton,
+  Input,
+} from "@chakra-ui/react";
+import { EditIcon, DeleteIcon, CloseIcon } from "@chakra-ui/icons";
 
 const Attendance = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
@@ -52,13 +66,50 @@ const Attendance = () => {
     const updatedRecords = [...attendanceRecords];
     updatedRecords.splice(index, 1);
     setAttendanceRecords(updatedRecords);
+    setEditIndex(null);
   };
 
   return (
-    <Container boxShadow="lg" p="6" rounded="md" bg="white" mt={5}>
+    <Container bg="white" mt={5} p={6}>
       <Text fontSize="lg" color="blue.600" fontWeight="bold" textAlign="center">
         Attendance Management System
       </Text>
+
+      <Table variant="simple" mt={5}>
+        <Thead>
+          <Tr>
+            <Th>Student ID</Th>
+            <Th>Course ID</Th>
+            <Th>Date</Th>
+            <Th>Status</Th>
+            <Th>Action</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {attendanceRecords.map((record, index) => (
+            <Tr key={index}>
+              <Td>{record.studentId}</Td>
+              <Td>{record.courseId}</Td>
+              <Td>{record.date}</Td>
+              <Td>{record.status}</Td>
+              <Td>
+                <IconButton
+                  colorScheme="blue"
+                  aria-label="Edit"
+                  icon={<EditIcon />}
+                  onClick={() => editAttendanceRecord(index)}
+                />
+                <IconButton
+                  colorScheme="red"
+                  aria-label="Delete"
+                  icon={<DeleteIcon />}
+                  onClick={() => deleteAttendanceRecord(index)}
+                />
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
 
       <Stack spacing={3} mt={5}>
         <Input
@@ -77,22 +128,17 @@ const Attendance = () => {
           value={newRecord.date}
           onChange={(e) => setNewRecord({ ...newRecord, date: e.target.value })}
         />
-        <Button onClick={addAttendanceRecord}>
-          {editIndex !== null ? "Update Attendance" : "Record Attendance"}
-        </Button>
-      </Stack>
-
-      <Stack mt={5}>
-        {attendanceRecords.map((record, index) => (
-          <div key={index}>
-            <Text>
-              Student ID: {record.studentId}, Course ID: {record.courseId}, Date:{" "}
-              {record.date}, Status: {record.status}
-            </Text>
-            <Button onClick={() => editAttendanceRecord(index)}>Edit Record</Button>
-            <Button onClick={() => deleteAttendanceRecord(index)}>Delete Record</Button>
-          </div>
-        ))}
+        <Stack direction="row">
+          <Button onClick={addAttendanceRecord}>
+            {editIndex !== null ? "Update Attendance" : "Record Attendance"}
+          </Button>
+          <IconButton
+            colorScheme="blue"
+            aria-label="Clear"
+            icon={<CloseIcon />}
+            onClick={() => setEditIndex(null)}
+          />
+        </Stack>
       </Stack>
     </Container>
   );
